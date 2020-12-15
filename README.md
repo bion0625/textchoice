@@ -22,7 +22,7 @@
 				<td><input id="text"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="button" value="글감생성" onclick="text();"></td>
+				<td colspan="2"><input type="button" value="클릭" onclick="text();"></td>
 			</tr>
 		</table>
 	</body>
