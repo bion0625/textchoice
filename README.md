@@ -20,7 +20,7 @@
 			var base = document.getElementById("base");
 			if(document.getElementById("check") != ''){
 				go[cnt] = document.getElementById("check").value;
-				base.innerHTML = base.innerHTML + "<br>" + go[cnt];
+				base.innerHTML = base.innerHTML + "<br>"+ (cnt+1) +") "+ go[cnt];
 				document.getElementById("check").value = '';
 				cnt++;
 				
@@ -65,6 +65,6 @@
 			</tr>
 		</table>
 		<p></p>
-		<div id="base" style="padding: 0; margin: 0 auto; width: 300px; text-align: center; box-shadow: 2px 2px;">입력한 글 아래에 표시<br>선택을 누르면 이중에서 선택됩니다</div>
+		<div id="base" style="padding: 0; margin: 0 auto; width: 300px; text-align: center; box-shadow: 2px 2px;">입력한 글 아래에 표시<br>선택을 누르면 이중에 선택됩니다</div>
 	</body>
 </html>
