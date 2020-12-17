@@ -43,7 +43,7 @@
 		<br>
 		
 		<table align="center" border="1" style="border-collapse: collapse;">
-			<caption>:::글감 입력해서 선택하기:::</caption>
+			<caption>:::글감 생성기:::</caption>
 			<tr>
 				<th>단어</th>
 				<td><input id="check" autofocus="autofocus"></td>
