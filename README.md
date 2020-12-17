@@ -18,13 +18,14 @@
 		
 		function plus() {
 			var base = document.getElementById("base");
-			if(document.getElementById("check") != ''){
-				go[cnt] = document.getElementById("check").value;
-				base.innerHTML = base.innerHTML + "<br>"+ (cnt+1) +") "+ go[cnt];
-				document.getElementById("check").value = '';
-				cnt++;
-				
+			if(document.getElementById("check").value == ''){
+				alert("단어를 입력하세요");
+				return;
 			}
+			go[cnt] = document.getElementById("check").value;
+			base.innerHTML = base.innerHTML + "<br>"+ (cnt+1) +") "+ go[cnt];
+			document.getElementById("check").value = '';
+			cnt++;
 		}
 		
 		function result() {
@@ -34,24 +35,17 @@
 		
 	</script>
 	</head>
-	<body>
-		<table align="center" border="1" style="border-collapse: collapse;">
-		</table>
-		
-		<br>
-		<hr>
-		<br>
-		
+	<body>		
 		<table align="center" border="1" style="border-collapse: collapse;">
 			<caption>:::글감 생성기:::</caption>
 			<tr>
 				<th>단어</th>
-				<td><input id="check" autofocus="autofocus"></td>
+				<td><input id="check" autofocus="autofocus" style="width: 100px; display: inline;"></td>
 				<td><input type="button" value="입력" onclick="plus();"></td>
 			</tr>
 			<tr>
 				<td><input type="button" value="생성" onclick="text();"></td>
-				<td><input id="result"></td>
+				<td><input id="result" style="width: 100px; display: inline;"></td>
 				<td><input type="button" value="선택" onclick="result();"></td>
 			</tr>
 		</table>
