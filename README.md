@@ -30,6 +30,10 @@
 		
 		function result() {
 			var num = Math.floor(Math.random()*(cnt));
+			if(go.length == ''){
+				alert("단어를 입력하세요");
+				return;
+			}
 			document.getElementById("result").value = go[num];
 		}
 		
