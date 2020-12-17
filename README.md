@@ -40,12 +40,12 @@
 			<caption>:::글감 생성기:::</caption>
 			<tr>
 				<th>단어</th>
-				<td><input id="check" autofocus="autofocus" style="width: 100px; display: inline;"></td>
+				<td><input id="check" autofocus="autofocus" style="width: 150px; display: inline;"></td>
 				<td><input type="button" value="입력" onclick="plus();"></td>
 			</tr>
 			<tr>
 				<td><input type="button" value="생성" onclick="text();"></td>
-				<td><input id="result" style="width: 100px; display: inline;"></td>
+				<td><input id="result" style="width: 150px; display: inline;"></td>
 				<td><input type="button" value="선택" onclick="result();"></td>
 			</tr>
 		</table>
