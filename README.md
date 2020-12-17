@@ -10,7 +10,7 @@
 		
 		function text() {
 			var num = Math.floor( (Math.random()*(choice.length)) );
-			document.getElementById("text").value = choice[num];
+			document.getElementById("check").value = choice[num];
 		}
 		
 		var go = [];
@@ -35,17 +35,6 @@
 	</script>
 	</head>
 	<body>
-	
-		<table align="center" border="1" style="border-collapse: collapse;">
-			<caption>:::글감 생성기:::</caption>
-			<tr>
-				<th>단어</th>
-				<td><input id="text"></td>
-			</tr>
-			<tr>
-				<td><input type="button" value="클릭" onclick="text();"></td>
-			</tr>
-		</table>
 		<table align="center" border="1" style="border-collapse: collapse;">
 		</table>
 		
@@ -56,10 +45,12 @@
 		<table align="center" border="1" style="border-collapse: collapse;">
 			<caption>:::글감 입력해서 선택하기:::</caption>
 			<tr>
+				<th>단어</th>
 				<td><input id="check" autofocus="autofocus"></td>
 				<td><input type="button" value="입력" onclick="plus();"></td>
 			</tr>
 			<tr>
+				<td><input type="button" value="생성" onclick="text();"></td>
 				<td><input id="result"></td>
 				<td><input type="button" value="선택" onclick="result();"></td>
 			</tr>
