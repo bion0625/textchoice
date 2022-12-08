@@ -1,0 +1,58 @@
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(1.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1{
+    color: white;
+    opacity: 0.5;
+    text-shadow: 1px 1px 1px black;
+}
+button{
+    color: white;
+    background-color: teal;
+    border-radius: 5px;
+    border: 0;
+    opacity: 0.5;
+}
+button:hover{
+    opacity: 0.9;
+}
+span{
+    opacity: 0.5;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    border: solid 1px white;
+    padding: 0 30px;
+}
+@media (max-width: 1200px) {
+    h1{
+        font-size: 80px;
+    }
+    button{
+        width: 400px;
+        font-size: 40px;
+    }
+    span{
+        font-size: 40px;
+        color: black;
+    }
+    .container{
+        width: 400px;
+        height: 400px;
+    }
+}
