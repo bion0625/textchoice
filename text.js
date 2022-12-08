@@ -17,3 +17,16 @@ const keyword = localStorage.getItem("keyword")
 if(keyword !== null){
 	inertKeyword(keyword);
 }
+
+const time = document.querySelector("#time");
+
+function setTime(){
+	const date = new Date();
+	const h = String(date.getHours()).padStart(2,"0");
+	const m = String(date.getMinutes()).padStart(2,"0");
+	const s = String(date.getSeconds()).padStart(2,"0");
+	time.innerText = `${h}:${m}:${s}`;
+}
+
+setTime();
+setInterval(setTime, 1000);
