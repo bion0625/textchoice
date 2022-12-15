@@ -20,7 +20,13 @@ let textStop;
 let firstStop;
 let secondStop;
 
+const firstTypeList = ["문학","비문학"];
+const secondTypeList = ["소설","시","희곡"];
+
 function text() {
+	if(textCount !== Timer -1){
+		return;
+	}
     const num = Math.floor( (Math.random()*(choice.length)) );
 	save(KEY_KEYWORD,choice[num]);
 	inertKeyword(Timer, KEY_KEYWORD);
@@ -44,23 +50,27 @@ function setTime(){
 }
 
 function firstType() {
-	const typeList = ["문학","비문학"];
+	if(firstCount !== Timer -1){
+		return;
+	}
     const num = Math.floor( (Math.random()*2) );
-	save(KEY_FIRST_TYPE,typeList[num]);
+	save(KEY_FIRST_TYPE,firstTypeList[num]);
 	inertKeyword(Timer, KEY_FIRST_TYPE);
 	firstStop = setInterval(setFirstType, 1000);
 }
 
 function secondType() {
-	const typeList = ["소설","시","희곡"];
+	if(secondCount !== Timer -1){
+		return;
+	}
     const num = Math.floor( (Math.random()*3) );
-	save(KEY_SECOND_TYPE,typeList[num]);
+	save(KEY_SECOND_TYPE,secondTypeList[num]);
 	inertKeyword(Timer, KEY_SECOND_TYPE);
 	secondStop = setInterval(setSecondType, 1000);
 }
 
 function typeCheck(check){
-	if(check === "문학"){
+	if(check === firstTypeList[0]){
 		document.querySelector("#second").classList.remove(KEY_HIDDEN);
 	}else{
 		document.querySelector("#second").classList.add(KEY_HIDDEN);
@@ -78,6 +88,10 @@ function setText(){
 		clearInterval(textStop);
 		textCount = Timer - 1;
 	}
+
+	if(localStorage.getItem("keyword") === keyword){
+		clearInterval(textStop);
+	}
 }
 
 function setFirstType(){
@@ -91,6 +105,10 @@ function setFirstType(){
 		typeCheck(type);
 		firstCount = Timer - 1;
 	}
+
+	if(localStorage.getItem("first-type") === firstTypeCheck){
+		clearInterval(firstStop);
+	}
 }
 
 function setSecondType(){
@@ -101,6 +119,10 @@ function setSecondType(){
 		inertKeyword(localStorage.getItem("second-type"), KEY_SECOND_TYPE);
 		clearInterval(secondStop);
 		secondCount = Timer - 1;
+	}
+
+	if(localStorage.getItem("second-type") === secondTypeCheck){
+		clearInterval(secondStop);
 	}
 }
 
