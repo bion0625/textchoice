@@ -64,6 +64,9 @@ span{
         font-size: 40px;
     }
     button:focus{
+        opacity: 0.5;
+    }
+    button:active{
         opacity: 0.9;
     }
     span{
