@@ -12,13 +12,18 @@ const keyword = localStorage.getItem(KEY_KEYWORD);
 const firstTypeCheck = localStorage.getItem(KEY_FIRST_TYPE);
 const secondTypeCheck = localStorage.getItem(KEY_SECOND_TYPE);
 
-let textCount = 2;
+const Timer = 3;
+let textCount = Timer -1;
+let firstCount = Timer - 1;
+let secondCount = Timer - 1;
 let textStop;
+let firstStop;
+let secondStop;
 
 function text() {
     const num = Math.floor( (Math.random()*(choice.length)) );
 	save(KEY_KEYWORD,choice[num]);
-	inertKeyword(3, KEY_KEYWORD);
+	inertKeyword(Timer, KEY_KEYWORD);
 	textStop = setInterval(setText, 1000);
 }
 
@@ -41,16 +46,17 @@ function setTime(){
 function firstType() {
 	const typeList = ["문학","비문학"];
     const num = Math.floor( (Math.random()*2) );
-	inertKeyword(typeList[num], KEY_FIRST_TYPE);
 	save(KEY_FIRST_TYPE,typeList[num]);
-	typeCheck(typeList[num]);
+	inertKeyword(Timer, KEY_FIRST_TYPE);
+	firstStop = setInterval(setFirstType, 1000);
 }
 
 function secondType() {
 	const typeList = ["소설","시","희곡"];
     const num = Math.floor( (Math.random()*3) );
-    inertKeyword(typeList[num], KEY_SECOND_TYPE);
 	save(KEY_SECOND_TYPE,typeList[num]);
+	inertKeyword(Timer, KEY_SECOND_TYPE);
+	secondStop = setInterval(setSecondType, 1000);
 }
 
 function typeCheck(check){
@@ -58,9 +64,9 @@ function typeCheck(check){
 		document.querySelector("#second").classList.remove(KEY_HIDDEN);
 	}else{
 		document.querySelector("#second").classList.add(KEY_HIDDEN);
-		localStorage.setItem(KEY_SECOND_TYPE,"");
-		inertKeyword("", KEY_SECOND_TYPE);
 	}
+	localStorage.setItem(KEY_SECOND_TYPE,"");
+	inertKeyword("", KEY_SECOND_TYPE);
 }
 
 function setText(){
@@ -70,7 +76,31 @@ function setText(){
 	}else{
 		inertKeyword(localStorage.getItem("keyword"), KEY_KEYWORD);
 		clearInterval(textStop);
-		textCount = 2;
+		textCount = Timer - 1;
+	}
+}
+
+function setFirstType(){
+	if(firstCount > 0){
+		inertKeyword(firstCount, KEY_FIRST_TYPE);
+		firstCount--;
+	}else{
+		const type = localStorage.getItem("first-type");
+		inertKeyword(type, KEY_FIRST_TYPE);
+		clearInterval(firstStop);
+		typeCheck(type);
+		firstCount = Timer - 1;
+	}
+}
+
+function setSecondType(){
+	if(secondCount > 0){
+		inertKeyword(secondCount, KEY_SECOND_TYPE);
+		secondCount--;
+	}else{
+		inertKeyword(localStorage.getItem("second-type"), KEY_SECOND_TYPE);
+		clearInterval(secondStop);
+		secondCount = Timer - 1;
 	}
 }
 
