@@ -28,6 +28,9 @@ button{
 button:hover{
     opacity: 0.9;
 }
+button:active{
+    opacity: 0.5;
+}
 span{
     opacity: 0.5;
     text-align: center;
