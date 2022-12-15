@@ -7,11 +7,14 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    transition: all 3s ease-in-out;
 }
 h1{
     color: white;
     opacity: 0.5;
     text-shadow: 1px 1px 1px black;
+    font-size: 40px;
 }
 button{
     color: white;
@@ -30,6 +33,7 @@ span{
     text-shadow: 1px 1px 1px black;
 }
 .container{
+    margin: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -44,9 +48,12 @@ span{
     color: white;
     text-shadow: 1px 1px 1px black; 
 }
+.hidden{
+    display: none;
+}
 @media (max-width: 1200px) {
     h1{
-        font-size: 80px;
+        font-size: 40px;
     }
     button{
         width: 400px;

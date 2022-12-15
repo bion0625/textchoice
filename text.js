@@ -7,15 +7,12 @@ function text() {
     inertKeyword(choice[num]);
 	save(choice[num]);
 }
+
 function inertKeyword(keyword){
 	document.getElementById("check").innerText = keyword;
 }
 function save(keyword){
 	localStorage.setItem("keyword",keyword);
-}
-const keyword = localStorage.getItem("keyword")
-if(keyword !== null){
-	inertKeyword(keyword);
 }
 
 const time = document.querySelector("#time");
@@ -30,3 +27,44 @@ function setTime(){
 
 setTime();
 setInterval(setTime, 1000);
+
+function firstType() {
+	const typeList = ["문학","비문학"];
+    const num = Math.floor( (Math.random()*2) );
+    document.getElementById("first-type").innerText = typeList[num];
+	localStorage.setItem("first-type",typeList[num]);
+	if(typeList[num] === "문학"){
+		document.querySelector("#second").classList.remove("hidden");
+	}else{
+		document.querySelector("#second").classList.add("hidden");
+	}
+}
+
+function secondType() {
+	const typeList = ["소설","시","희곡"];
+    const num = Math.floor( (Math.random()*3) );
+    document.getElementById("second-type").innerText = typeList[num];
+	localStorage.setItem("second-type",typeList[num]);
+}
+
+const keyword = localStorage.getItem("keyword")
+if(keyword !== null){
+	inertKeyword(keyword);
+}
+
+const firstTypeCheck = localStorage.getItem("first-type")
+if(firstTypeCheck !== null){
+	document.getElementById("first-type").innerText = firstTypeCheck;
+	if(firstTypeCheck === "문학"){
+		document.querySelector("#second").classList.remove("hidden");
+	}else{
+		document.querySelector("#second").classList.add("hidden");
+	}
+}else{
+	document.querySelector("#second").classList.add("hidden");
+}
+
+const secondTypeCheck = localStorage.getItem("second-type")
+if(secondTypeCheck !== null){
+	document.getElementById("second-type").innerText = secondTypeCheck;
+}
