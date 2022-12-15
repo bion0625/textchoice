@@ -12,7 +12,7 @@ const keyword = localStorage.getItem(KEY_KEYWORD);
 const firstTypeCheck = localStorage.getItem(KEY_FIRST_TYPE);
 const secondTypeCheck = localStorage.getItem(KEY_SECOND_TYPE);
 
-const Timer = 3;
+const Timer = 2;
 let textCount = Timer -1;
 let firstCount = Timer - 1;
 let secondCount = Timer - 1;
@@ -88,10 +88,6 @@ function setText(){
 		clearInterval(textStop);
 		textCount = Timer - 1;
 	}
-
-	if(localStorage.getItem("keyword") === keyword){
-		clearInterval(textStop);
-	}
 }
 
 function setFirstType(){
@@ -105,10 +101,6 @@ function setFirstType(){
 		typeCheck(type);
 		firstCount = Timer - 1;
 	}
-
-	if(localStorage.getItem("first-type") === firstTypeCheck){
-		clearInterval(firstStop);
-	}
 }
 
 function setSecondType(){
@@ -119,10 +111,6 @@ function setSecondType(){
 		inertKeyword(localStorage.getItem("second-type"), KEY_SECOND_TYPE);
 		clearInterval(secondStop);
 		secondCount = Timer - 1;
-	}
-
-	if(localStorage.getItem("second-type") === secondTypeCheck){
-		clearInterval(secondStop);
 	}
 }
 
