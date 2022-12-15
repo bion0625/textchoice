@@ -32,6 +32,7 @@ span{
     color: white;
 }
 .base-container{
+    border: 1px solid white;
     display: flex;
 }
 .container{

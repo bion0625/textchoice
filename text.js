@@ -7,10 +7,15 @@ const keyword = localStorage.getItem("keyword")
 const firstTypeCheck = localStorage.getItem("first-type")
 const secondTypeCheck = localStorage.getItem("second-type")
 
+const KEY_KEYWORD = "keyword";
+const KEY_FIRST_TYPE = "first-type";
+const KEY_SECOND_TYPE = "second-type";
+const KEY_HIDDEN = "hidden";
+
 function text() {
     const num = Math.floor( (Math.random()*(choice.length)) );
-    inertKeyword(choice[num], "keyword");
-	save("keyword",choice[num]);
+    inertKeyword(choice[num], KEY_KEYWORD);
+	save(KEY_KEYWORD,choice[num]);
 }
 
 function inertKeyword(keyword, type){
@@ -29,29 +34,28 @@ function setTime(){
 	time.innerText = `${h}:${m}:${s}`;
 }
 
-
 function firstType() {
 	const typeList = ["문학","비문학"];
     const num = Math.floor( (Math.random()*2) );
-	inertKeyword(typeList[num], "first-type");
-	save("first-type",typeList[num]);
+	inertKeyword(typeList[num], KEY_FIRST_TYPE);
+	save(KEY_FIRST_TYPE,typeList[num]);
 	typeCheck(typeList[num]);
 }
 
 function secondType() {
 	const typeList = ["소설","시","희곡"];
     const num = Math.floor( (Math.random()*3) );
-    inertKeyword(typeList[num], "second-type");
-	save("second-type",typeList[num]);
+    inertKeyword(typeList[num], KEY_SECOND_TYPE);
+	save(KEY_SECOND_TYPE,typeList[num]);
 }
 
 function typeCheck(check){
 	if(check === "문학"){
-		document.querySelector("#second").classList.remove("hidden");
+		document.querySelector("#second").classList.remove(KEY_HIDDEN);
 	}else{
-		document.querySelector("#second").classList.add("hidden");
-		localStorage.setItem("second-type","");
-		inertKeyword("", "second-type");
+		document.querySelector("#second").classList.add(KEY_HIDDEN);
+		localStorage.setItem(KEY_SECOND_TYPE,"");
+		inertKeyword("", KEY_SECOND_TYPE);
 	}
 }
 
@@ -59,16 +63,16 @@ setTime();
 setInterval(setTime, 1000);
 
 if(keyword !== null){
-	inertKeyword(keyword, "keyword");
+	inertKeyword(keyword, KEY_KEYWORD);
 }
 
 if(firstTypeCheck !== null){
-	inertKeyword(firstTypeCheck, "first-type");
+	inertKeyword(firstTypeCheck, KEY_FIRST_TYPE);
 	typeCheck(firstTypeCheck);
 }else{
-	document.querySelector("#second").classList.add("hidden");
+	document.querySelector("#second").classList.add(KEY_HIDDEN);
 }
 
 if(secondTypeCheck !== null){
-	inertKeyword(secondTypeCheck, "second-type");
+	inertKeyword(secondTypeCheck, KEY_SECOND_TYPE);
 }
