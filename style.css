@@ -63,7 +63,7 @@ span{
         width: 400px;
         font-size: 40px;
     }
-    button:focus{
+    button:hover{
         opacity: 0.5;
     }
     button:active{
