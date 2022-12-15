@@ -17,6 +17,8 @@ h1{
     padding: 10px;
 }
 button{
+    width: 200px;
+    font-size: 20px;
     color: white;
     background-color: teal;
     border-radius: 5px;
