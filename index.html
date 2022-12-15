@@ -7,20 +7,22 @@
 	</head>
 	<body>
         <span id="time"></span>
-        <div class="container">
-            <h1>첫 번째 장르 선택</h1>
-            <span id="first-type"></span>
-            <button onclick="firstType();">선택 click !</button>
-        </div>
-        <div class="container hidden" id="second">
-            <h1>두 번째 장르 선택</h1>
-            <span id="second-type"></span>
-            <button onclick="secondType();">선택 click !</button>
-        </div>
-        <div class="container">		
-            <h1>글감생성</h1>
-            <span id="check"></span>
-            <button onclick="text();">생성 click !</button>
+        <div class="base-container">
+            <div class="container">
+                <h1>장르 선택</h1>
+                <span id="first-type"></span>
+                <button onclick="firstType();">선택 click !</button>
+            </div>
+            <div class="container hidden" id="second">
+                <h1>문학 유형 선택</h1>
+                <span id="second-type"></span>
+                <button onclick="secondType();">선택 click !</button>
+            </div>
+            <div class="container">		
+                <h1>글감생성</h1>
+                <span id="keyword"></span>
+                <button onclick="text();">생성 click !</button>
+            </div>
         </div>
 	</body>
     <script src="text.js"></script>

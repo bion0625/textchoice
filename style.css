@@ -7,14 +7,14 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    transition: all 3s ease-in-out;
 }
 h1{
     color: white;
     opacity: 0.5;
     text-shadow: 1px 1px 1px black;
-    font-size: 40px;
+    font-size: 20px;
+    border: 1px solid white;
+    padding: 10px;
 }
 button{
     color: white;
@@ -30,7 +30,9 @@ span{
     opacity: 0.5;
     text-align: center;
     color: white;
-    text-shadow: 1px 1px 1px black;
+}
+.base-container{
+    display: flex;
 }
 .container{
     margin: 10px;
@@ -40,8 +42,9 @@ span{
     flex-direction: column;
     width: 200px;
     height: 200px;
-    border: solid 1px white;
     padding: 0 30px;
+    opacity: 0.7;
+    background-color: black;
 }
 #time{
     font-size: 50px;
@@ -59,13 +62,19 @@ span{
         width: 400px;
         font-size: 40px;
     }
+    button:focus{
+        opacity: 0.9;
+    }
     span{
         font-size: 40px;
-        color: black;
+    }
+    .base-container{
+        display: flex;
+        flex-direction: column;
     }
     .container{
         width: 400px;
-        height: 400px;
+        height: 300px;
     }
     #time{
         font-size: 100px;
