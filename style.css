@@ -63,7 +63,7 @@ span{
 .hidden{
     display: none;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1200px) and (orientation : portrait){
     h1{
         font-size: 40px;
     }
