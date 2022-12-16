@@ -20,10 +20,16 @@ let textStop;
 let firstStop;
 let secondStop;
 
+let textButton;
+let firstButton;
+let secondButton;
+
 const firstTypeList = ["문학","비문학"];
 const secondTypeList = ["소설","시","희곡"];
 
-function text() {
+function text(button) {
+	textButton = button;
+	textButton.disabled = true;
 	if(textCount !== Timer -1){
 		return;
 	}
@@ -49,7 +55,9 @@ function setTime(){
 	time.innerText = `${h}:${m}:${s}`;
 }
 
-function firstType() {
+function firstType(button) {
+	firstButton = button;
+	firstButton.disabled = true;
 	if(firstCount !== Timer -1){
 		return;
 	}
@@ -59,7 +67,9 @@ function firstType() {
 	firstStop = setInterval(setFirstType, 1000);
 }
 
-function secondType() {
+function secondType(button) {
+	secondButton = button;
+	secondButton.disabled = true;
 	if(secondCount !== Timer -1){
 		return;
 	}
@@ -86,6 +96,7 @@ function setText(){
 	}else{
 		inertKeyword(localStorage.getItem("keyword"), KEY_KEYWORD);
 		clearInterval(textStop);
+		textButton.disabled = false;
 		textCount = Timer - 1;
 	}
 }
@@ -99,6 +110,7 @@ function setFirstType(){
 		inertKeyword(type, KEY_FIRST_TYPE);
 		clearInterval(firstStop);
 		typeCheck(type);
+		firstButton.disabled = false;
 		firstCount = Timer - 1;
 	}
 }
@@ -110,6 +122,7 @@ function setSecondType(){
 	}else{
 		inertKeyword(localStorage.getItem("second-type"), KEY_SECOND_TYPE);
 		clearInterval(secondStop);
+		secondButton.disabled = false;
 		secondCount = Timer - 1;
 	}
 }
