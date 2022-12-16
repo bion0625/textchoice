@@ -1,0 +1,20 @@
+.name{
+    margin: 10px;
+    width: 400px;
+    font-size: 20px;
+    opacity: 0.3;
+    border: 0;
+    border-bottom: 1px solid black;
+}
+.name:active{
+    border: 0;
+}
+.name::placeholder{
+    text-align: center;
+}
+@media (max-width: 1200px) and (orientation : portrait){
+    .name{
+        width: 400px;
+        font-size: 40px;
+    }
+}
