@@ -8,12 +8,16 @@ function setSubmit(event){
     const text = name.value;
     save("name", text);
     name.value = "";
-    name.placeholder = `hello, ${text}`;
+    setPlaceholder(text)
 }
 
 const localName = localStorage.getItem("name");
 
 if(localName !== null){
+    setPlaceholder(localName)
+}
+
+function setPlaceholder(text){
     const name = nameForm.querySelector("input");
-    name.placeholder = `HELLO, ${localName}`;
+    name.placeholder = `Hello, ${text}`;
 }
