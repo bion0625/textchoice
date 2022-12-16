@@ -30,9 +30,6 @@ const secondTypeList = ["소설","시","희곡"];
 function text(button) {
 	textButton = button;
 	textButton.disabled = true;
-	if(textCount !== Timer -1){
-		return;
-	}
     const num = Math.floor( (Math.random()*(choice.length)) );
 	save(KEY_KEYWORD,choice[num]);
 	inertKeyword(Timer, KEY_KEYWORD);
@@ -58,21 +55,16 @@ function setTime(){
 function firstType(button) {
 	firstButton = button;
 	firstButton.disabled = true;
-	if(firstCount !== Timer -1){
-		return;
-	}
-    const num = Math.floor( (Math.random()*2) );
+    const num = Math.floor( (Math.random()*firstTypeList.length) );
 	save(KEY_FIRST_TYPE,firstTypeList[num]);
 	inertKeyword(Timer, KEY_FIRST_TYPE);
+	document.querySelector("#second").classList.add(KEY_HIDDEN);
 	firstStop = setInterval(setFirstType, 1000);
 }
 
 function secondType(button) {
 	secondButton = button;
 	secondButton.disabled = true;
-	if(secondCount !== Timer -1){
-		return;
-	}
     const num = Math.floor( (Math.random()*3) );
 	save(KEY_SECOND_TYPE,secondTypeList[num]);
 	inertKeyword(Timer, KEY_SECOND_TYPE);

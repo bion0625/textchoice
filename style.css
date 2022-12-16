@@ -54,6 +54,7 @@ span{
     opacity: 0.7;
     background-color: black;
     border-radius: 10px;
+    transition: all 0.5s ease-in-out;
 }
 #time{
     font-size: 50px;
@@ -61,7 +62,10 @@ span{
     text-shadow: 1px 1px 1px black; 
 }
 .hidden{
-    display: none;
+    /* display: none; */
+    width: 1px;
+    padding: 0;
+    opacity: 0;
 }
 @media (max-width: 1200px) and (orientation : portrait){
     h1{
@@ -88,9 +92,20 @@ span{
         width: 400px;
         height: 300px;
     }
+    .hidden{
+        height: 0;
+    }
     #time{
         font-size: 100px;
         color: white;
         text-shadow: 1px 1px 1px black; 
+    }
+}
+@media (max-width: 1200px) and (orientation : landscape){
+    button:hover{
+        opacity: 0.5;
+    }
+    button:active{
+        opacity: 0.9;
     }
 }
