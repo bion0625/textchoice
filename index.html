@@ -5,6 +5,7 @@
 		<title>글감생성기</title>
         <link rel="stylesheet" href="css/text.css">
         <link rel="stylesheet" href="css/user.css">
+        <link rel="stylesheet" href="css/memo.css">
 	</head>
 	<body>
         <span id="time"></span>
@@ -28,7 +29,12 @@
                 <button onclick="text(this);">click</button>
             </div>
         </div>
+        <button onclick="visibleMemo(this)">memo</button>
+        <div class="memo-container">
+            <textarea name="" id="" class="fold memo" cols="30" rows="10"></textarea>
+        </div>
 	</body>
     <script src="js/text.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/memo.js"></script>
 </html>

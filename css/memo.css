@@ -1,0 +1,20 @@
+.fold{
+    height: 0;
+    opacity: 0;
+}
+
+.base-container{
+    transition: all 0.5s ease-in-out;
+}
+
+.memo-container{
+    margin: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.memo{
+    transition: all 0.5s ease-in-out;
+    width: 800px;
+    height: 100px;
+}

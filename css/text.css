@@ -63,7 +63,7 @@ span{
 }
 .hidden{
     /* display: none; */
-    width: 1px;
+    width: 0;
     padding: 0;
     opacity: 0;
 }
