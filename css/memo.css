@@ -58,3 +58,9 @@ button{
         height: 300px;
     }
 }
+
+@media (min-width: 1200px){
+    body{
+        height: 100vh;
+    }
+}
