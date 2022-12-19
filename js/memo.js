@@ -47,6 +47,10 @@ function insert(){
         alert("memo is empty !!");
         return;
     }
+    if(memoList.length >= 10){
+        alert("memo can't exceed 10 !!");
+        return;
+    }
     memoList.push(memo.value);
     insertMemoList(memoList);
     saveLocalStorage(memoList);
