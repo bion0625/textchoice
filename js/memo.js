@@ -8,6 +8,8 @@ let memoList = [];
 let memoFlag = true;
 let memoSizeFlag = true;
 
+const savedMemoList = JSON.parse(localStorage.getItem("memoList"));
+
 function visibleMemo(button){
     const containers = baseContainer.querySelectorAll(".container");
     if(memoFlag){
@@ -78,8 +80,6 @@ function saveLocalStorage(memoList){
     const saveMemoList = JSON.stringify(memoList)
     localStorage.setItem("memoList", saveMemoList);
 }
-
-const savedMemoList = JSON.parse(localStorage.getItem("memoList"));
 
 if(savedMemoList !== null && savedMemoList.length > 0){
     memoList = savedMemoList;
