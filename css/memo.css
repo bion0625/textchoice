@@ -38,6 +38,9 @@ button{
     z-index: 2;
 }
 @media (max-width: 1200px) and (orientation : portrait){
+    body{
+        height: 100vh;
+    }
     #button-container{
         height: 200px;
         display: flex;
