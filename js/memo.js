@@ -5,10 +5,17 @@ const memoContainer = document.querySelector(".memo-container");
 const memo = document.querySelector(".memo");
 let memoList = [];
 
+let saveRenewalList = [];
+const preRenewalList = localStorage.getItem("saveRenewalList");
+
 let memoFlag = true;
 let memoSizeFlag = true;
 
 const savedMemoList = JSON.parse(localStorage.getItem("memoList"));
+
+if(preRenewalList !== null){
+    saveRenewalList = JSON.parse(preRenewalList);
+}
 
 function visibleMemo(button){
     const containers = baseContainer.querySelectorAll(".container");
@@ -34,6 +41,16 @@ function size(){
 }
 
 function renewal(){
+
+    if(memoList.length > 0){
+        const saveRenewal = {
+            id : Date.now(),
+            memoList : memoList
+        }
+        saveRenewalList.push(saveRenewal);
+        localStorage.setItem("saveRenewalList",JSON.stringify(saveRenewalList));
+    }
+
     removeAllMemo();
     memoList = [];
     saveLocalStorage(memoList);
