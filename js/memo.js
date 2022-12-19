@@ -66,8 +66,8 @@ function insert(){
         alert("memo is empty !!");
         return;
     }
-    if(memoList.length >= 8){
-        alert("memo can't exceed 8 !!");
+    if(memoList.length >= 5){
+        alert("memo can't exceed 5 !!");
         return;
     }
     memoList.push(memo.value);
