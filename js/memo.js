@@ -34,6 +34,8 @@ function removeAllPast(){
 function pastSelect(button){
     saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
     const pastSelectList = saveRenewalList.filter(list => String(list.id) === button.target.id);
+    saveRenewalList.forEach(list => document.getElementById(list.id).classList.remove("check"))
+    button.target.classList.add("check");
     insertMemoList(pastSelectList[0].memoList);
 }
 
