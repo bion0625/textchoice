@@ -34,6 +34,10 @@ body{
     width: 700px;
     height: 100px;
 }
+.past{
+    margin: 20px;
+    color: black;
+}
 button{
     z-index: 2;
 }

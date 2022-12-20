@@ -11,10 +11,51 @@ const preRenewalList = localStorage.getItem("saveRenewalList");
 let memoFlag = true;
 let memoSizeFlag = true;
 
+let checkButton = null;
+
 const savedMemoList = JSON.parse(localStorage.getItem("memoList"));
+const pastButton = document.querySelector("#button-container .hidden");
+
+const count = 3;
 
 if(preRenewalList !== null){
     saveRenewalList = JSON.parse(preRenewalList);
+    pastButton.classList.remove(KEY_HIDDEN);
+}
+
+function removeAllPast(){
+    const pastButtons = document.querySelectorAll(".past");
+    pastButtons.forEach(button => button.remove());
+}
+
+function pastSelect(button){
+    saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
+    const pastSelectList = saveRenewalList.filter(list => String(list.id) === button.target.id);
+    insertMemoList(pastSelectList[0].memoList);
+}
+
+function insertPast(title, id){
+    const button = document.createElement("button");
+    button.innerText = title;
+    button.className = "past";
+    button.id = id;
+    button.addEventListener("click",pastSelect);
+    memoContainer.appendChild(button);
+}
+
+function numberPadStart(number){
+    return String(number).padStart(2,"0");
+}
+
+function past(button){
+    checkButton = button;
+    button.disabled = true;
+    saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
+    for(let i = saveRenewalList.length - 1; i >= 0 ; i--){
+        const date = new Date(saveRenewalList[i].id);
+        const title = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()} ${numberPadStart(date.getHours())}:${numberPadStart(date.getMinutes())}:${numberPadStart(date.getSeconds())}`;
+        insertPast(title, saveRenewalList[i].id);
+    }
 }
 
 function visibleMemo(button){
@@ -48,12 +89,31 @@ function renewal(){
             memoList : memoList
         }
         saveRenewalList.push(saveRenewal);
+        
+        if(saveRenewalList.length > 3){
+            const tempList = saveRenewalList;
+            let cnt = 0;
+            saveRenewalList = [];
+            for(let i = tempList.length-1; i >= 0; i--){
+                if(cnt < count){
+                    saveRenewalList.push(tempList[i]);
+                }
+                cnt++;
+            }
+        }
+
         localStorage.setItem("saveRenewalList",JSON.stringify(saveRenewalList));
     }
 
     removeAllMemo();
+
+    if(checkButton !== null){
+        checkButton.disabled = false;
+    }
+    removeAllPast();
     memoList = [];
     saveLocalStorage(memoList);
+    pastButton.classList.remove(KEY_HIDDEN);
 }
 
 function removeAllMemo(){
@@ -66,8 +126,8 @@ function insert(){
         alert("memo is empty !!");
         return;
     }
-    if(memoList.length >= 5){
-        alert("memo can't exceed 5 !!");
+    if(memoList.length >= count){
+        alert("memo can't exceed "+count+" !!");
         return;
     }
     memoList.push(memo.value);
