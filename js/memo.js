@@ -1,6 +1,7 @@
 const KEY_FOLD = "fold";
 const KEY_MEMO = "prememo";
 const KEY_RENEWAL = "renewal";
+const KEY_CHECK = "check";
 const KEY_PAST = "past";
 const baseContainer = document.querySelector(".base-container");
 const memoContainer = document.querySelector(".memo-container");
@@ -34,8 +35,8 @@ function removeAllPast(){
 function pastSelect(button){
     saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
     const pastSelectList = saveRenewalList.filter(list => String(list.id) === button.target.id);
-    saveRenewalList.forEach(list => document.getElementById(list.id).classList.remove("check"))
-    button.target.classList.add("check");
+    saveRenewalList.forEach(list => document.getElementById(list.id).classList.remove(KEY_CHECK))
+    button.target.classList.add(KEY_CHECK);
     insertMemoList(pastSelectList[0].memoList);
 }
 
@@ -57,10 +58,10 @@ function past(button){
     const renewalButton = document.getElementById(KEY_RENEWAL);
     // button.disabled = true;
     if(!renewalButton.disabled){
-        button.classList.remove("check");
+        button.classList.remove(KEY_CHECK);
         renewal();
     }else{
-        button.classList.add("check");
+        button.classList.add(KEY_CHECK);
         renewalButton.disabled = false;
         saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
         for(let i = saveRenewalList.length - 1; i >= 0 ; i--){
@@ -74,7 +75,7 @@ function past(button){
 function visibleMemo(button){
     const containers = baseContainer.querySelectorAll(".container");
     if(memoFlag){
-        button.innerText = "글감생성기";
+        button.innerText = "CREATE";
         containers.forEach(container => container.classList.add(KEY_FOLD));
         memoContainer.classList.remove(KEY_FOLD);
         memoFlag = false;
@@ -89,11 +90,11 @@ function visibleMemo(button){
 function size(button){
     if(memoSizeFlag){
         memo.classList.add("memosize");
-        button.classList.add("check");
+        button.classList.add(KEY_CHECK);
         memoSizeFlag = false;
     }else{
         memo.classList.remove("memosize");
-        button.classList.remove("check");
+        button.classList.remove(KEY_CHECK);
         memoSizeFlag = true;
     }
 }
@@ -101,7 +102,7 @@ function size(button){
 function renewal(){
 
     document.getElementById(KEY_RENEWAL).disabled = true;
-    document.getElementById(KEY_PAST).classList.remove("check");
+    document.getElementById(KEY_PAST).classList.remove(KEY_CHECK);
 
     if(memoList.length > 0){
         const saveRenewal = {
