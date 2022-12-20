@@ -38,6 +38,11 @@ body{
     margin-top: 20px;
     color: black;
 }
+.check{
+    background-color: white;
+    color: teal;
+    border: 1px solid teal;
+}
 button:disabled{
     background-color: rebeccapurple;
 }

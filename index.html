@@ -34,9 +34,9 @@
             <textarea name="" id="" class="fold memo" cols="30" rows="10"></textarea>
             <div id="button-container">
                 <button onclick="insert()">save</button>
-                <button onclick="size()">resize</button>
+                <button onclick="size(this)">resize</button>
                 <button onclick="renewal()" id="renewal" disabled>renewal</button>
-                <button onclick="past(this)" class="hidden">past(3)</button>
+                <button onclick="past(this)" id="past" class="hidden">past(3)</button>
             </div>
         </div>
 	</body>
