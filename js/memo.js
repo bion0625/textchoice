@@ -53,10 +53,15 @@ function numberPadStart(number){
     return String(number).padStart(2,"0");
 }
 
+function insertPastList(list){
+    const date = new Date(list.id);
+    const title = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()} ${numberPadStart(date.getHours())}:${numberPadStart(date.getMinutes())}:${numberPadStart(date.getSeconds())}`;
+    insertPast(title, list.id);
+}
+
 function past(button){
     checkButton = button;
     const renewalButton = document.getElementById(KEY_RENEWAL);
-    // button.disabled = true;
     if(!renewalButton.disabled){
         button.classList.remove(KEY_CHECK);
         renewal();
@@ -64,11 +69,7 @@ function past(button){
         button.classList.add(KEY_CHECK);
         renewalButton.disabled = false;
         saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
-        for(let i = saveRenewalList.length - 1; i >= 0 ; i--){
-            const date = new Date(saveRenewalList[i].id);
-            const title = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()} ${numberPadStart(date.getHours())}:${numberPadStart(date.getMinutes())}:${numberPadStart(date.getSeconds())}`;
-            insertPast(title, saveRenewalList[i].id);
-        }
+        saveRenewalList.forEach(list => insertPastList(list));
     }
 }
 
