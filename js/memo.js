@@ -1,5 +1,6 @@
 const KEY_FOLD = "fold";
 const KEY_MEMO = "prememo";
+const KEY_RENEWAL = "renewal";
 const baseContainer = document.querySelector(".base-container");
 const memoContainer = document.querySelector(".memo-container");
 const memo = document.querySelector(".memo");
@@ -49,6 +50,7 @@ function numberPadStart(number){
 
 function past(button){
     checkButton = button;
+    document.getElementById(KEY_RENEWAL).disabled = false;
     button.disabled = true;
     saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
     for(let i = saveRenewalList.length - 1; i >= 0 ; i--){
@@ -84,6 +86,8 @@ function size(){
 }
 
 function renewal(){
+
+    document.getElementById(KEY_RENEWAL).disabled = true;
 
     if(memoList.length > 0){
         const saveRenewal = {
@@ -132,6 +136,9 @@ function insert(){
         alert("memo can't exceed "+count+" !!");
         return;
     }
+
+    document.getElementById(KEY_RENEWAL).disabled = false;
+
     memoList.push(memo.value);
     insertMemoList(memoList);
     saveLocalStorage(memoList);
