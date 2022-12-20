@@ -61,10 +61,12 @@ function past(button){
 function visibleMemo(button){
     const containers = baseContainer.querySelectorAll(".container");
     if(memoFlag){
+        button.innerText = "글감생성기";
         containers.forEach(container => container.classList.add(KEY_FOLD));
         memoContainer.classList.remove(KEY_FOLD);
         memoFlag = false;
     }else{
+        button.innerText = "memo";
         containers.forEach(container => container.classList.remove(KEY_FOLD));
         memoContainer.classList.add(KEY_FOLD);
         memoFlag = true;
