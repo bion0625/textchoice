@@ -10,7 +10,9 @@ body{
 .base-container{
     transition: all 0.5s ease-in-out;
 }
-
+.memo-change{
+    margin-top: 10px;
+}
 .memo-container{
     z-index: 1;
     margin: 10px;
