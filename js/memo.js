@@ -20,14 +20,14 @@ const savedMemoList = JSON.parse(localStorage.getItem("memoList"));
 const pastButton = document.querySelector("#button-container .hidden");
 const saveButton = document.querySelector("#save-button");
 
+
 let pastSelectId = null;
 
 
 const count = 3;
 
-
 function onText(textarea){
-    if(textarea.value.length > 0){
+    if(textarea.value.length > 0 && memoList.length < 3){
         saveButton.disabled = false;
     }
     else{
@@ -189,6 +189,7 @@ function insert(){
     memoList.push(memo.value);
     insertMemoList(memoList);
     saveLocalStorage(memoList);
+    saveButton.disabled = true;
     memo.value = "";
 }
 
