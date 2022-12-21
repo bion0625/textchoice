@@ -103,6 +103,7 @@ function visibleMemo(button){
         memoFlag = false;
     }else{
         button.innerText = "memo";
+        renewal();
         containers.forEach(container => container.classList.remove(KEY_FOLD));
         memoContainer.classList.add(KEY_FOLD);
         memoFlag = true;
