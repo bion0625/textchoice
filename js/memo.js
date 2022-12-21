@@ -185,6 +185,11 @@ function insert(){
     // if(!renewalButton.disabled){
     //     renewal();
     // }
+        
+    const pastButton = document.getElementById(KEY_PAST);
+    if(pastButton.classList.contains(KEY_CHECK)){
+        renewal();
+    }
 
     document.getElementById(KEY_PAST).disabled = true;
 
