@@ -18,9 +18,20 @@ let checkButton = null;
 
 const savedMemoList = JSON.parse(localStorage.getItem("memoList"));
 const pastButton = document.querySelector("#button-container .hidden");
+const saveButton = document.querySelector("#save-button");
 
 
 const count = 3;
+
+
+function onText(textarea){
+    if(textarea.value.length > 0){
+        saveButton.disabled = false;
+    }
+    else{
+        saveButton.disabled = true;
+    }
+}
 
 if(preRenewalList !== null){
     saveRenewalList = JSON.parse(preRenewalList);
@@ -107,6 +118,7 @@ function renewal(){
     document.getElementById(KEY_PAST).classList.remove(KEY_CHECK);
 
     if(memoList.length > 0){
+        saveButton.disabled = true;
         const saveRenewal = {
             id : Date.now(),
             memoList : memoList

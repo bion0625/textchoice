@@ -31,9 +31,9 @@
         </div>
         <button onclick="visibleMemo(this)">memo</button>
         <div class="memo-container fold">
-            <textarea name="" id="" class="fold memo" cols="30" rows="10"></textarea>
+            <textarea name="" id="" class="fold memo" cols="30" rows="10" onkeyup="onText(this)"></textarea>
             <div id="button-container">
-                <button onclick="insert()">save</button>
+                <button onclick="insert()" id="save-button" disabled>save</button>
                 <button onclick="size(this)">resize</button>
                 <button onclick="past(this)" id="past" class="hidden">past(3)</button>
                 <button onclick="renewal()" id="renewal" disabled>renewal</button>
