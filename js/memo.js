@@ -88,7 +88,7 @@ function past(button){
 function visibleMemo(button){
     const containers = baseContainer.querySelectorAll(".container");
     if(memoFlag){
-        button.innerText = "CREATE";
+        button.innerText = "create";
         containers.forEach(container => container.classList.add(KEY_FOLD));
         memoContainer.classList.remove(KEY_FOLD);
         memoFlag = false;
