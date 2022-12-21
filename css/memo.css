@@ -73,7 +73,11 @@ button{
     z-index: 2;
 }
 #memo-button-container{
+    width: 800px;
     margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
     background-color: black;
     opacity: 0.5;
@@ -96,7 +100,6 @@ button{
         flex-direction: column;
     }
     #memo-button-container{
-        display: flex;
         flex-direction: column;
     }
 }
