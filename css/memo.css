@@ -33,9 +33,21 @@ body{
     height: 700px;
 }
 .prememo{
+    display: flex;
+    flex-direction: column;
+}
+.prememo > textarea{
+    border-radius: 10px;
     transition: all 0.5s ease-in-out;
     width: 700px;
     height: 100px;
+}
+.prememo > span{
+    border-radius: 10px;
+    background-color: black;
+    font-size: 20px;
+    width: 100px;
+    height: 30px;
 }
 .past{
     margin: 20px;

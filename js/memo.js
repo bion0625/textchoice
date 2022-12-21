@@ -49,7 +49,6 @@ function pastSelect(button){
     saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
     const pastSelectList = saveRenewalList.filter(list => String(list.id) === button.target.id);
     saveRenewalList.forEach(list => document.getElementById(list.id).classList.remove(KEY_CHECK))
-    insertMemoList(pastSelectList[0].memoList);
     if(pastSelectId !== null && pastSelectId === button.target.id){
         button.target.classList.remove(KEY_CHECK);
         pastSelectId = null;
@@ -57,6 +56,7 @@ function pastSelect(button){
     }else{
         button.target.classList.add(KEY_CHECK);
         pastSelectId = button.target.id;
+        insertMemoList(pastSelectList[0].memoList);
     }
 }
 
@@ -194,18 +194,23 @@ function insert(){
 function insertMemoList(memoList){
     removeAllMemo();
     for(let i = memoList.length-1; i>=0;i--){
-        insertMemo(memoList[i]);
+        insertMemo(memoList[i], memoList.length-i, count);
     }
 }
 
-function insertMemo(memo){
+function insertMemo(memo, number, length){
+    const div = document.createElement("div");
+    div.className = KEY_MEMO;
     const textarea = document.createElement("textarea");
     textarea.value = memo;
-    textarea.className = KEY_MEMO;
     textarea.disabled = true;
     textarea.cols = 30;
     textarea.rows = 10;
-    memoContainer.appendChild(textarea);
+    const span = document.createElement("span");
+    span.innerText = String(number) +"/"+ length;
+    div.appendChild(span);
+    div.appendChild(textarea);
+    memoContainer.appendChild(div);
 }
 
 function saveLocalStorage(memoList){
