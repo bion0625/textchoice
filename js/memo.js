@@ -176,10 +176,10 @@ function insert(){
         return;
     }
 
-    const renewalButton = document.getElementById(KEY_RENEWAL);
-    if(!renewalButton.disabled){
-        renewal();
-    }
+    // const renewalButton = document.getElementById(KEY_RENEWAL);
+    // if(!renewalButton.disabled){
+    //     renewal();
+    // }
 
     document.getElementById(KEY_PAST).disabled = true;
 
