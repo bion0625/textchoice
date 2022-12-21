@@ -147,6 +147,10 @@ function renewal(){
             }
         }
 
+        if(memo.value.length > 0){
+            saveButton.disabled = false;
+        }
+
         localStorage.setItem("saveRenewalList",JSON.stringify(saveRenewalList));
     }
 
