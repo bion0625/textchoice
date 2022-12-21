@@ -5,6 +5,8 @@ const KEY_KEYWORD = "keyword";
 const KEY_FIRST_TYPE = "first-type";
 const KEY_SECOND_TYPE = "second-type";
 const KEY_HIDDEN = "hidden";
+const KEY_CLICK = "click";
+const KEY_NO_CLICK = "no click";
 
 const time = document.querySelector("#time");
 const choice = baseText.split(' ');
@@ -30,6 +32,7 @@ const secondTypeList = ["소설","시","희곡"];
 function text(button) {
 	textButton = button;
 	textButton.disabled = true;
+	textButton.innerText = KEY_NO_CLICK;
     const num = Math.floor( (Math.random()*(choice.length)) );
 	save(KEY_KEYWORD,choice[num]);
 	inertKeyword(Timer, KEY_KEYWORD);
@@ -55,6 +58,7 @@ function setTime(){
 function firstType(button) {
 	firstButton = button;
 	firstButton.disabled = true;
+	firstButton.innerText = KEY_NO_CLICK;
     const num = Math.floor( (Math.random()*firstTypeList.length) );
 	save(KEY_FIRST_TYPE,firstTypeList[num]);
 	inertKeyword(Timer, KEY_FIRST_TYPE);
@@ -65,6 +69,7 @@ function firstType(button) {
 function secondType(button) {
 	secondButton = button;
 	secondButton.disabled = true;
+	secondButton.innerText = KEY_NO_CLICK;
     const num = Math.floor( (Math.random()*3) );
 	save(KEY_SECOND_TYPE,secondTypeList[num]);
 	inertKeyword(Timer, KEY_SECOND_TYPE);
@@ -89,6 +94,7 @@ function setText(){
 		inertKeyword(localStorage.getItem("keyword"), KEY_KEYWORD);
 		clearInterval(textStop);
 		textButton.disabled = false;
+		textButton.innerText = KEY_CLICK;
 		textCount = Timer - 1;
 	}
 }
@@ -103,6 +109,7 @@ function setFirstType(){
 		clearInterval(firstStop);
 		typeCheck(type);
 		firstButton.disabled = false;
+		firstButton.innerText = KEY_CLICK;
 		firstCount = Timer - 1;
 	}
 }
@@ -115,6 +122,7 @@ function setSecondType(){
 		inertKeyword(localStorage.getItem("second-type"), KEY_SECOND_TYPE);
 		clearInterval(secondStop);
 		secondButton.disabled = false;
+		secondButton.innerText = KEY_CLICK;
 		secondCount = Timer - 1;
 	}
 }
