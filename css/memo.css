@@ -48,6 +48,7 @@ body{
 }
 button:disabled{
     background-color: rebeccapurple;
+    color: black;
 }
 button{
     z-index: 2;
