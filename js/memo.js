@@ -20,6 +20,8 @@ const savedMemoList = JSON.parse(localStorage.getItem("memoList"));
 const pastButton = document.querySelector("#button-container .hidden");
 const saveButton = document.querySelector("#save-button");
 
+let pastSelectId = null;
+
 
 const count = 3;
 
@@ -47,8 +49,15 @@ function pastSelect(button){
     saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
     const pastSelectList = saveRenewalList.filter(list => String(list.id) === button.target.id);
     saveRenewalList.forEach(list => document.getElementById(list.id).classList.remove(KEY_CHECK))
-    button.target.classList.add(KEY_CHECK);
     insertMemoList(pastSelectList[0].memoList);
+    if(pastSelectId !== null && pastSelectId === button.target.id){
+        button.target.classList.remove(KEY_CHECK);
+        pastSelectId = null;
+        removeAllMemo();
+    }else{
+        button.target.classList.add(KEY_CHECK);
+        pastSelectId = button.target.id;
+    }
 }
 
 function insertPast(title, id){
