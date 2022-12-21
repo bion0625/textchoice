@@ -50,6 +50,11 @@ button:disabled{
     background-color: rebeccapurple;
     color: black;
 }
+.base-button:disabled{
+    background-color: white;
+    color: teal;
+    border: 1px solid teal;
+}
 button{
     z-index: 2;
 }
