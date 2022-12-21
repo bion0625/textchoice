@@ -41,12 +41,13 @@ function pastSelect(button){
 }
 
 function insertPast(title, id){
+    const memoButtonContainer = document.querySelector("#memo-button-container")
     const button = document.createElement("button");
     button.innerText = title;
     button.className = KEY_PAST;
     button.id = id;
     button.addEventListener("click",pastSelect);
-    memoContainer.appendChild(button);
+    memoButtonContainer.appendChild(button);
 }
 
 function numberPadStart(number){

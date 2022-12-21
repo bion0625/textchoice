@@ -38,7 +38,7 @@ body{
     height: 100px;
 }
 .past{
-    margin-top: 20px;
+    margin: 20px;
     color: black;
 }
 .check{
@@ -52,9 +52,21 @@ button:disabled{
 button{
     z-index: 2;
 }
+#memo-button-container{
+    margin: 5px;
+    border-radius: 10px;
+    background-color: black;
+    opacity: 0.5;
+}
+button{
+    opacity: 1;
+}
 @media (max-width: 1200px) and (orientation : portrait){
     body{
         height: 100vh;
+    }
+    textarea{
+        font-size: 40px;
     }
     #button-container{
         height: 200px;
@@ -63,8 +75,9 @@ button{
         align-items: center;
         flex-direction: column;
     }
-    textarea{
-        font-size: 40px;
+    #memo-button-container{
+        display: flex;
+        flex-direction: column;
     }
 }
 
