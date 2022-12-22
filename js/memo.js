@@ -36,7 +36,7 @@ function onText(textarea){
 }
 
 if(preRenewalList !== null){
-    saveRenewalList = JSON.parse(preRenewalList);
+    saveRenewalList = JSON.parse(preRenewalList).sort(asc);
     pastButton.classList.remove(KEY_HIDDEN);
 }
 
@@ -46,7 +46,7 @@ function removeAllPast(){
 }
 
 function pastSelect(button){
-    saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
+    saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList")).sort(asc);
     const pastSelectList = saveRenewalList.filter(list => String(list.id) === button.target.id);
     saveRenewalList.forEach(list => document.getElementById(list.id).classList.remove(KEY_CHECK))
     if(pastSelectId !== null && pastSelectId === button.target.id){
@@ -89,7 +89,7 @@ function past(button){
     }else{
         button.classList.add(KEY_CHECK);
         renewalButton.disabled = false;
-        saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList"));
+        saveRenewalList = JSON.parse(localStorage.getItem("saveRenewalList")).sort(asc);
         saveRenewalList.forEach(list => insertPastList(list));
     }
 }
@@ -124,6 +124,10 @@ function size(button){
 
 function desc(a, b){
     return a.id - b.id;
+}
+
+function asc(a, b){
+    return b.id - a.id;
 }
 
 function renewal(){
