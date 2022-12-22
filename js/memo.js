@@ -122,8 +122,11 @@ function size(button){
     }
 }
 
-function renewal(){
+function desc(a, b){
+    return a.id - b.id;
+}
 
+function renewal(){
     document.getElementById(KEY_RENEWAL).disabled = true;
     document.getElementById(KEY_PAST).classList.remove(KEY_CHECK);
 
@@ -136,15 +139,9 @@ function renewal(){
         saveRenewalList.push(saveRenewal);
         
         if(saveRenewalList.length > 3){
-            const tempList = saveRenewalList;
-            let cnt = 0;
-            saveRenewalList = [];
-            for(let i = tempList.length-1; i >= 0; i--){
-                if(cnt < count){
-                    saveRenewalList.push(tempList[i]);
-                }
-                cnt++;
-            }
+            saveRenewalList.sort(desc);
+            saveRenewalList.shift();
+            saveRenewalList.reverse();
         }
 
         if(memo.value.length > 0){
